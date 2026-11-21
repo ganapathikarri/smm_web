@@ -1,0 +1,187 @@
+/* Phase 3 customer experience — live wallet, Razorpay Standard Checkout and service discovery.
+   Scoped to .customer-shell so the Phase 2 admin console remains unchanged. */
+.customer-shell{--cx-violet:#6655cb;--cx-ink:#283149;--cx-muted:#7a8498;--cx-edge:#e8eaf5;--cx-radius:18px;background:#f7f8fd}
+.customer-shell .customer-main{max-width:1480px}
+.customer-shell .customer-page-heading h1{font-size:clamp(25px,2.6vw,34px);font-weight:850;letter-spacing:-1.2px}
+.customer-shell .customer-page-heading p{font-size:12px;line-height:1.6;color:#8b93a5;max-width:610px}
+.customer-shell .customer-nav-item{font-size:12px;font-weight:700;min-height:42px}
+.customer-shell .customer-nav-label{font-size:9px}
+.customer-shell .customer-side-welcome strong{font-size:12px}
+.customer-shell .customer-side-welcome span{font-size:10px}
+.customer-shell .customer-section-head h2{font-size:18px;letter-spacing:-.3px}
+.customer-shell .customer-section-head p{font-size:11px;line-height:1.5}
+.customer-shell .customer-hero h2{font-size:clamp(28px,3.2vw,44px);letter-spacing:-1.7px;line-height:1.13}
+.customer-shell .customer-hero p{font-size:12px;line-height:1.65;max-width:380px}
+.customer-shell .customer-stat-grid>div{border-radius:15px;padding:20px;min-height:115px;box-shadow:0 5px 20px rgba(35,39,100,.03)}
+.customer-shell .customer-stat-grid span{font-size:10px;font-weight:700;color:#8c93a6}
+.customer-shell .customer-stat-grid strong{font-size:24px}
+.customer-shell .customer-stat-grid small{font-size:10px;color:#8d96a9}
+.customer-shell .customer-category-card{border-radius:14px;min-height:145px;padding:18px}
+.customer-shell .customer-category-card strong{font-size:12px}
+.customer-shell .customer-category-card small{font-size:10px}
+.customer-shell .customer-category-filters button{font-size:10px;padding:9px 12px;border-radius:9px}
+.customer-shell .customer-service-grid{gap:17px}
+.customer-shell .customer-service-card{border-radius:17px;min-height:260px;padding:21px;transition:transform .18s,box-shadow .18s,border-color .18s;box-shadow:0 6px 21px rgba(39,42,102,.03)}
+.customer-shell .customer-service-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(46,36,116,.09);border-color:#d4cdf9}
+.customer-shell .customer-service-platform{font-size:10px;margin-top:18px}
+.customer-shell .customer-service-card h3{font-size:15px;line-height:1.4;margin:9px 0}
+.customer-shell .customer-service-card p{font-size:11px;line-height:1.65;margin-bottom:18px;color:#818aa0}
+.customer-shell .customer-service-card-foot{padding-top:15px}
+.customer-shell .customer-service-card-foot strong{font-size:19px}
+.customer-shell .customer-service-card-foot small{font-size:10px}
+.customer-shell .customer-service-card-foot button{font-size:10px;height:38px;padding:0 13px;border-radius:10px;font-weight:800}
+.customer-shell .customer-search{height:41px;border-radius:11px}
+.customer-shell .customer-search input{font-size:11px}
+.customer-shell .customer-order-row{min-height:76px}
+.customer-shell .customer-order-info strong,.customer-shell .customer-order-price{font-size:12px}
+.customer-shell .customer-order-info small{font-size:10px}
+.customer-shell .customer-empty{font-size:11px;line-height:1.7}
+.customer-shell .customer-footer{font-size:10px}
+.customer-shell .btn{font-size:11px;font-weight:800}
+.customer-shell .modal-label{font-size:11px;font-weight:800}
+.customer-shell .form-input{font-size:12px}
+.customer-shell .cx-quote>div{font-size:12px}.customer-shell .cx-quote small{font-size:10px}
+.customer-shell .customer-topbar{box-shadow:0 5px 22px rgba(31,31,63,.03)}
+.customer-shell .customer-topbar-actions{display:flex;align-items:center;gap:10px}
+.customer-shell .cx-top-wallet-link,.customer-shell .cx-top-add-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:37px;padding:0 14px;border-radius:10px;cursor:pointer;font-size:11px;font-weight:800;transition:transform .15s,box-shadow .15s}
+.customer-shell .cx-top-wallet-link{background:#f6f4ff;border:1px solid #e7e2ff;color:#6655c5}
+.customer-shell .cx-top-add-button{color:#fff;background:linear-gradient(130deg,#7564e1,#5744c0);border:1px solid #6654ce;box-shadow:0 5px 15px rgba(100,75,207,.19)}
+.customer-shell .cx-top-add-button:hover,.customer-shell .cx-top-wallet-link:hover{transform:translateY(-1px)}
+.customer-shell .cx-nav-trailing{margin-left:auto;opacity:.6}
+.customer-shell .cx-sidebar-topup{width:100%;margin:20px 0 14px;padding:14px 12px;border:1px solid #ded7ff;border-radius:13px;background:linear-gradient(140deg,#f6f3ff,#fff);text-align:left;display:grid;grid-template-columns:34px minmax(0,1fr) 18px;column-gap:9px;align-items:center;color:#5f50bf}
+.customer-shell .cx-sidebar-topup>span{grid-row:1/3;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;color:#fff;background:linear-gradient(145deg,#9f91f8,#6554cf)}
+.customer-shell .cx-sidebar-topup strong{font-size:11px;font-weight:850;grid-column:2}.customer-shell .cx-sidebar-topup small{font-size:9px;color:#988fc3;grid-column:2;line-height:1.6}
+.customer-shell .cx-sidebar-topup>svg{grid-column:3;grid-row:1/3}
+.customer-shell .cx-hero-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.customer-shell .cx-hero-actions .btn{font-size:11px}
+.customer-shell .cx-hero-outline{border:1px solid rgba(255,255,255,.32);border-radius:9px;color:#fff;background:rgba(255,255,255,.12);font-weight:800;min-height:38px;padding:0 15px;display:flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
+.customer-shell .cx-wallet-stat{position:relative;padding-bottom:20px}
+.customer-shell .cx-wallet-stat>button{align-self:flex-start;margin-top:9px;border:0;background:#eeeafd;color:#6453c6;padding:7px 10px;border-radius:8px;font-size:10px;font-weight:800;display:inline-flex;align-items:center;gap:5px}
+.customer-shell .cx-home-pay-banner,.customer-shell .cx-services-banner{display:flex;align-items:center;gap:18px;padding:21px 24px;border:1px solid #e5e1fb;border-radius:17px;background:linear-gradient(115deg,#fff 0%,#f5f3ff 70%,#e9e3ff 100%);box-shadow:0 5px 22px rgba(89,70,160,.05)}
+.customer-shell .cx-home-pay-banner{margin:14px 0 25px}
+.customer-shell .cx-home-pay-icon,.customer-shell .cx-services-banner-icon{width:51px;height:51px;display:grid;place-items:center;flex:none;background:#ebe7ff;border-radius:14px;color:#705ed4}
+.customer-shell .cx-home-pay-banner>div:nth-child(2),.customer-shell .cx-services-banner>div:nth-child(2){min-width:0;flex:1}
+.customer-shell .cx-home-pay-banner span,.customer-shell .cx-services-banner span{font-size:9px;font-weight:900;letter-spacing:1.1px;color:#9182cd}
+.customer-shell .cx-home-pay-banner h3,.customer-shell .cx-services-banner h2{font:850 18px/1.3 Manrope,sans-serif;color:#302c5a;letter-spacing:-.4px;margin:6px 0}
+.customer-shell .cx-home-pay-banner p,.customer-shell .cx-services-banner p{font-size:11px;line-height:1.55;color:#8584a5;margin:0}
+.customer-shell .cx-home-pay-banner>button,.customer-shell .cx-services-banner>button{display:inline-flex;align-items:center;gap:8px;justify-content:center;min-height:40px;white-space:nowrap;border:0;border-radius:10px;padding:0 18px;font-size:11px;font-weight:850;color:white;background:linear-gradient(135deg,#7865e6,#614bc5);box-shadow:0 6px 14px #6552cb30}
+.customer-shell .cx-services-banner{margin-bottom:24px;background:linear-gradient(110deg,#f5f3ff,#fff 72%,#e8fff7);border-color:#e9e6fa}
+.customer-shell .cx-services-banner-icon{background:#e9fff5;color:#299978}
+.customer-shell .cx-service-pay-cta{border:1px solid #e6e0ff;background:linear-gradient(110deg,#f8f6ff,#fff);padding:15px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-radius:13px}
+.customer-shell .cx-service-pay-cta>div{display:grid;grid-template-columns:25px minmax(0,1fr);gap:4px 8px;align-items:start}
+.customer-shell .cx-service-pay-cta>div svg{color:#7161d2;grid-row:1/3}
+.customer-shell .cx-service-pay-cta strong{font-size:12px;color:#393054}
+.customer-shell .cx-service-pay-cta span{font-size:10px;color:#837e9b;line-height:1.55}
+.customer-shell .cx-service-pay-cta>button{border:0;border-radius:10px;background:#725ed4;color:#fff;min-height:37px;padding:0 13px;font-size:11px;white-space:nowrap;font-weight:850;display:flex;align-items:center;gap:7px}
+.customer-shell .cx-wallet-heading-card{margin-bottom:18px;padding:21px 24px;border-radius:17px;background:linear-gradient(125deg,#f1efff,#fff 64%,#eefff7);border:1px solid #e6e3f8}
+.customer-shell .cx-finance-kicker{font-size:10px;font-weight:900;letter-spacing:1.4px;color:#7f6fd8;display:inline-flex;align-items:center;gap:7px}
+.customer-shell .cx-wallet-heading-card h2{font:850 clamp(19px,2.2vw,25px)/1.25 Manrope,sans-serif;color:#302d50;letter-spacing:-.75px;margin:10px 0 7px}
+.customer-shell .cx-wallet-heading-card p{font-size:12px;color:#8b8aa3;line-height:1.6;margin:0}
+.customer-shell .cx-wallet-layout{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:18px}
+.customer-shell .cx-balance-card{min-height:286px;border-radius:19px;padding:25px;background:radial-gradient(ellipse at 85% 12%,rgba(190,158,255,.45),transparent 44%),linear-gradient(135deg,#292d57,#6654b3 76%,#806ada);box-shadow:0 20px 34px rgba(74,65,154,.16);position:relative;overflow:hidden}
+.customer-shell .cx-balance-card:after{content:'';position:absolute;right:-50px;bottom:-70px;width:230px;height:230px;border:1px solid rgba(255,255,255,.17);border-radius:50%;pointer-events:none}
+.customer-shell .cx-balance-top{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
+.customer-shell .cx-balance-top>span:first-child{font-size:10px;letter-spacing:1px;color:#e2dcff;font-weight:850;display:inline-flex;align-items:center;gap:7px}
+.customer-shell .cx-secure-chip{border:1px solid rgba(255,255,255,.24);border-radius:99px;padding:6px 9px;color:#f2efff;font-size:9px;font-weight:800;display:inline-flex;align-items:center;gap:5px;background:#ffffff13}
+.customer-shell .cx-balance-card>strong{font:850 clamp(34px,3.8vw,46px) Manrope,sans-serif;letter-spacing:-1.8px;margin:25px 0 2px}
+.customer-shell .cx-balance-card>small{font-size:11px;color:#e1ddff}
+.customer-shell .cx-balance-actions{display:flex;gap:9px;margin:22px 0 0;width:100%;position:relative;z-index:1}
+.customer-shell .cx-balance-add{border:0;flex:1;display:flex;justify-content:center;align-items:center;gap:9px;background:#fff;border-radius:11px;min-height:43px;color:#5847b9;font-size:12px;font-weight:900}
+.customer-shell .cx-balance-add svg:last-child{margin-left:auto;margin-right:11px}
+.customer-shell .cx-balance-refresh{border:1px solid rgba(255,255,255,.3);border-radius:11px;background:rgba(255,255,255,.12);color:#fff;width:45px;display:grid;place-items:center}
+.customer-shell .cx-balance-card-foot{font-size:9px;color:#dcd8ff;margin-top:auto}
+.customer-shell .cx-wallet-info{min-height:286px;padding:25px;border-radius:19px;box-shadow:0 5px 22px rgba(42,42,88,.03)}
+.customer-shell .cx-wallet-info h2{font:850 23px/1.2 Manrope,sans-serif;letter-spacing:-.7px;margin:11px 0;color:#333451}
+.customer-shell .cx-wallet-info p{font-size:12px;line-height:1.7;color:#7d8798;margin-bottom:14px}
+.customer-shell .cx-wallet-perks{display:flex;flex-wrap:wrap;column-gap:16px;row-gap:9px;margin:16px 0 20px}
+.customer-shell .cx-wallet-perks>div{display:flex;align-items:center;gap:7px;color:#526179;font-size:10px;font-weight:700}
+.customer-shell .cx-wallet-perks svg{color:#279a7b}
+.customer-shell .cx-wallet-primary-btn{min-height:44px;display:inline-flex;gap:8px;align-items:center;font-size:12px}
+.customer-shell .cx-wallet-info>small{font-size:10px;margin-top:14px;color:#a1a7b5}
+.customer-shell .cx-wallet-setup{margin:17px 0;padding:17px 19px;display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #e2d7ff;border-radius:15px;background:#f6f3ff}
+.customer-shell .cx-wallet-setup>div{display:flex;gap:13px;align-items:center}
+.customer-shell .cx-wallet-setup-icon{width:42px;height:42px;display:grid;place-items:center;color:#7660cf;border-radius:12px;background:#e8e2ff}
+.customer-shell .cx-wallet-setup strong{font-size:13px;color:#36304e}
+.customer-shell .cx-wallet-setup p{font-size:11px;margin:4px 0 0;color:#847d9c}
+.customer-shell .cx-wallet-setup button{white-space:nowrap}
+.customer-shell .cx-outline-refresh{border:1px solid #e5e4f2;background:#fff;border-radius:9px;display:flex;align-items:center;gap:7px;color:#675cc0;font-size:11px;font-weight:800;min-height:35px;padding:0 13px}
+.customer-shell .cx-ledger-unavailable{border:1px dashed #dfdfef;border-radius:13px;background:#fbfbfe;color:#958aa9;display:flex;align-items:center;gap:15px;padding:23px}
+.customer-shell .cx-ledger-unavailable strong{display:block;font-size:12px;color:#4c4a65}
+.customer-shell .cx-ledger-unavailable p{margin:5px 0 0;font-size:11px;line-height:1.55;color:#9294a7}
+/* Checkout modal */
+.customer-shell .cx-modal{max-width:580px;padding:23px;border-radius:20px;box-shadow:0 28px 90px rgba(28,21,67,.25)}
+.customer-shell .cx-modal .modal-head h3{font:850 22px/1.25 Manrope,sans-serif;letter-spacing:-.8px;color:#302d48}
+.customer-shell .cx-modal .modal-head p{font-size:11px;line-height:1.5;color:#8c93a5}
+.customer-shell .cx-payment-modal{display:grid;gap:15px}
+.customer-shell .cx-payment-banner{border:1px solid #e7e2fd;border-radius:13px;background:#faf8ff;padding:14px;display:flex;align-items:center;gap:11px}
+.customer-shell .cx-payment-banner>span:first-child{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:#ece6ff;color:#6c59cd;flex:none}
+.customer-shell .cx-payment-banner>div{flex:1}
+.customer-shell .cx-payment-banner strong{font-size:12px;color:#392f61}
+.customer-shell .cx-payment-banner p{font-size:10px;color:#9088a7;margin:4px 0 0}
+.customer-shell .cx-payment-secure{display:flex;align-items:center;gap:4px;color:#218a6c;font-size:10px;font-weight:900;white-space:nowrap}
+.customer-shell .cx-payment-form{display:grid;gap:12px}
+.customer-shell .cx-payment-form>label{font-size:14px;font-weight:850;color:#36314e}
+.customer-shell .cx-money-entry{height:69px;border:1.5px solid #ded8f9;border-radius:15px;display:flex;align-items:center;padding:0 17px;background:#fff;gap:10px;box-shadow:0 4px 18px rgba(95,68,200,.04)}
+.customer-shell .cx-money-entry:focus-within{border-color:#a091ee;box-shadow:0 0 0 4px rgba(123,108,226,.12)}
+.customer-shell .cx-money-entry>span:first-child{font-size:25px;font-weight:850;color:#8270ce}
+.customer-shell .cx-money-entry input{width:100%;min-width:0;flex:1;border:0;outline:0!important;background:transparent;font:850 29px Manrope,sans-serif;color:#2d2950}
+.customer-shell .cx-money-entry>span:last-child{color:#9f9cba;font-size:11px;font-weight:900}
+.customer-shell .cx-payment-form>small{font-size:10px;color:#9b9bab;margin-top:-3px}
+.customer-shell .cx-amount-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.customer-shell .cx-amount-options button{border:1px solid #ebe6fb;border-radius:10px;padding:10px 5px;font-size:11px;font-weight:800;color:#6e608f;background:#fff}
+.customer-shell .cx-amount-options button:hover,.customer-shell .cx-amount-options button.selected{border-color:#8674e1;background:#f3f0ff;color:#6553d1;box-shadow:inset 0 0 0 1px #8674e1}
+.customer-shell .cx-checkout-main{border:0;border-radius:12px;min-height:49px;padding:0 17px;background:linear-gradient(135deg,#7b69e1,#5d4bc9);box-shadow:0 9px 20px rgba(99,77,205,.21);color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.customer-shell .cx-checkout-main svg:last-child{margin-left:auto}
+.customer-shell .cx-payment-error{display:flex;align-items:flex-start;gap:10px;border:1px solid #f3d9d6;background:#fff5f3;color:#a34f55;padding:11px 12px;border-radius:11px;font-size:11px;line-height:1.5}
+.customer-shell .cx-payment-error svg{flex:none}
+.customer-shell .cx-payment-total{display:flex;align-items:center;justify-content:space-between;border:1px solid #ebe7f7;border-radius:12px;padding:13px 16px;color:#7c7891;font-size:11px}
+.customer-shell .cx-payment-total strong{font:850 23px Manrope,sans-serif;color:#46387c}
+.customer-shell .cx-payment-stage{text-align:center;padding:12px 15px}
+.customer-shell .cx-stage-icon{width:62px;height:62px;border-radius:19px;background:#f2efff;color:#7965dc;display:grid;place-items:center;margin:4px auto 13px}
+.customer-shell .cx-stage-credited{background:#e4f9f2;color:#21926d}
+.customer-shell .cx-stage-pending{background:#fff5e7;color:#bc8939}
+.customer-shell .cx-payment-stage h3{font:850 18px Manrope,sans-serif;color:#353250;margin:0 0 8px}
+.customer-shell .cx-payment-stage p{font-size:11px;line-height:1.6;color:#8991a5;margin:0}
+.customer-shell .cx-payment-reference{display:grid;grid-template-columns:125px 1fr;gap:9px 13px;background:#f9f9fd;border:1px solid #ececf7;border-radius:11px;padding:15px;align-items:center}
+.customer-shell .cx-payment-reference span{font-size:9px;font-weight:900;color:#a09aae;letter-spacing:.5px}
+.customer-shell .cx-payment-reference strong{font-size:11px;overflow-wrap:anywhere;color:#433b63}
+.customer-shell .cx-payment-actions{display:grid;gap:9px}
+.customer-shell .cx-payment-actions>.btn{justify-content:center;font-size:11px;min-height:41px}
+.customer-shell .cx-payment-footer{display:flex;align-items:flex-start;gap:8px;color:#8f96a7;font-size:10px;line-height:1.55;border-top:1px solid #efedf6;padding:12px 3px 0}
+.customer-shell .cx-payment-footer svg{flex:none;color:#39a186}
+.cx-spin{animation:cx-rotation .9s linear infinite}@keyframes cx-rotation{to{transform:rotate(360deg)}}
+/* Pleasant, accessible toast notifications */
+.customer-shell .cx-toast-stack{position:fixed;right:22px;top:87px;z-index:10000;display:flex;flex-direction:column;gap:11px;max-width:min(400px,calc(100vw - 28px));width:100%;pointer-events:none}
+.customer-shell .cx-notification{pointer-events:auto;display:flex;align-items:flex-start;gap:13px;padding:15px;background:#fff;border:1px solid #eee;border-left:4px solid #7662d7;border-radius:14px;box-shadow:0 14px 44px rgba(27,23,67,.18);animation:cx-toast-in .26s ease both}
+.customer-shell .cx-notification-success{border-left-color:#32a37d}.customer-shell .cx-notification-error{border-left-color:#de606f}.customer-shell .cx-notification-warning{border-left-color:#dba142}
+.customer-shell .cx-notification-icon{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#f0edff;color:#6e5bd3;flex:none}
+.customer-shell .cx-notification-success .cx-notification-icon{color:#1f9671;background:#e6f8f0}.customer-shell .cx-notification-error .cx-notification-icon{color:#c54b5d;background:#fff0f1}.customer-shell .cx-notification-warning .cx-notification-icon{color:#b88124;background:#fff4e2}
+.customer-shell .cx-notification-copy{flex:1;min-width:0;padding-top:3px}
+.customer-shell .cx-notification-copy strong{display:block;font-size:13px;font-weight:900;color:#32354c;line-height:1.4}
+.customer-shell .cx-notification-copy p{font-size:11px;color:#7b8599;line-height:1.55;margin:4px 0 0}
+.customer-shell .cx-notification>button{border:0;background:transparent;color:#a4a9b4;display:grid;place-items:center;width:25px;height:25px;flex:none;padding:0}
+@keyframes cx-toast-in{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1100px){.customer-shell .cx-wallet-layout{grid-template-columns:1fr}.customer-shell .cx-wallet-info,.customer-shell .cx-balance-card{min-height:250px}.customer-shell .cx-wallet-perks{margin:13px 0}}
+@media(max-width:760px){
+  .customer-shell .customer-main{padding:23px 16px}.customer-shell .customer-page-heading h1{font-size:26px}
+  .customer-shell .customer-service-grid{gap:10px}.customer-shell .customer-service-card{padding:15px;min-height:260px}.customer-shell .customer-service-card h3{font-size:13px}
+  .customer-shell .customer-service-card p{font-size:10px}.customer-shell .customer-service-card-foot button{font-size:10px}
+  .customer-shell .customer-stat-grid{gap:9px}.customer-shell .customer-stat-grid>div{min-height:110px;padding:14px}.customer-shell .customer-stat-grid strong{font-size:20px}
+  .customer-shell .cx-top-wallet-link{padding:0 9px}.customer-shell .cx-top-wallet-link span{display:none}
+  .customer-shell .cx-top-add-button{padding:0 11px;font-size:10px}.customer-shell .customer-topbar-actions>.btn{display:none}
+  .customer-shell .cx-home-pay-banner,.customer-shell .cx-services-banner{padding:18px;gap:12px;flex-wrap:wrap}
+  .customer-shell .cx-home-pay-banner>button,.customer-shell .cx-services-banner>button{width:100%}
+  .customer-shell .cx-toast-stack{right:14px;top:73px}
+  .customer-shell .cx-wallet-layout{grid-template-columns:1fr}.customer-shell .cx-wallet-setup{flex-wrap:wrap}
+  .customer-shell .cx-service-pay-cta{flex-direction:column;align-items:stretch}.customer-shell .cx-service-pay-cta>button{justify-content:center}
+}
+@media(max-width:440px){
+  .customer-shell .customer-category-grid,.customer-shell .customer-service-grid{grid-template-columns:1fr}
+  .customer-shell .customer-stat-grid{grid-template-columns:1fr}.customer-shell .customer-stat-grid>div{display:flex}
+  .customer-shell .cx-amount-options{grid-template-columns:repeat(2,1fr)}
+  .customer-shell .cx-payment-reference{grid-template-columns:1fr;gap:4px}.customer-shell .cx-payment-reference strong{margin-bottom:8px}
+  .customer-shell .cx-modal{padding:15px}.customer-shell .cx-money-entry input{font-size:24px}
+  .customer-shell .cx-balance-card{padding:21px}.customer-shell .cx-balance-card>strong{font-size:36px}
+  .customer-shell .cx-wallet-info{padding:21px}
+}
+@media(prefers-reduced-motion:reduce){.customer-shell .cx-notification,.customer-shell .cx-spin{animation:none}}
